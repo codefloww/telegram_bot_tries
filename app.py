@@ -1,5 +1,8 @@
 from aiogram import executor
+
 from loader import dp
+import filters
+import handlers
 from utils.set_bot_commands import set_default_commands
 
 
