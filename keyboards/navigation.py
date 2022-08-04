@@ -7,5 +7,12 @@ navigation_keyboard = ReplyKeyboardMarkup([
     ],
     [
         KeyboardButton("Admins")
+    ],
+    [
+        KeyboardButton("Add channel"),
+        KeyboardButton("Remove channel")
+    ],
+    [
+        KeyboardButton("Channels")
     ]
 ])
