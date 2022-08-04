@@ -13,6 +13,11 @@ from states.navigation import Navigation
     state="*"
 )
 async def start_handler(message: Message):
-    print(message.chat.first_name)
-    await message.answer("Hello, {}!".format(message.chat.first_name), reply_markup=navigation_keyboard)
+    # Присилаємо повідомлення-відповідь з клавіатурою
+    await message.answer(
+        "Привіт, " + message.chat.first_name,
+        reply_markup=navigation_keyboard
+    )
+
+    # Задаємо стан вибору опції з клавіатури
     await Navigation.PICKING_OPTION.set()

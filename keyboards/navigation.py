@@ -1,4 +1,11 @@
 from aiogram.types import ReplyKeyboardMarkup, KeyboardButton
 
-navigation_keyboard = ReplyKeyboardMarkup([[KeyboardButton("/start"),KeyboardButton("/help")],
-                                           [KeyboardButton("/admins")]])
+navigation_keyboard = ReplyKeyboardMarkup([
+    [
+        KeyboardButton("Add admin"),
+        KeyboardButton("Remove admin")
+    ],
+    [
+        KeyboardButton("Admins")
+    ]
+])
