@@ -1,3 +1,3 @@
 from . import help
-from . import navigation
 from . import start
+from . import admins

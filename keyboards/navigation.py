@@ -2,10 +2,10 @@ from aiogram.types import ReplyKeyboardMarkup, KeyboardButton
 
 navigation_keyboard = ReplyKeyboardMarkup([
     [
-        KeyboardButton("Button 1"),
-        KeyboardButton("Button 2")
+        KeyboardButton("Add admin"),
+        KeyboardButton("Remove admin")
     ],
     [
-        KeyboardButton("Button 3")
+        KeyboardButton("Admins")
     ]
 ])
