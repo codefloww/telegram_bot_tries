@@ -27,11 +27,25 @@ async def adding_channel_start_handler(message: Message):
 async def adding_channel_finish_handler(message: Message):
     try:
         user_id = int(message.text)
-        add_channel(user_id)
-        await message.answer(
-            "Канал успішно додано!",
-            reply_markup=navigation_keyboard
-        )
+        try:
+            member = await dp.bot.get_chat_member(user_id, dp.bot.id)
+        except:
+            await message.answer(
+                "Треба додати бота до чату!",
+                reply_markup=navigation_keyboard
+            )
+        else:
+            if not member.can_change_info:
+                await message.answer(
+                    "Треба дати права адміна боту!",
+                    reply_markup=navigation_keyboard
+                )
+            else:
+                add_channel(user_id)
+                await message.answer(
+                    "Канал успішно додано!",
+                    reply_markup=navigation_keyboard
+                )
     except:
         await message.answer(
             "Ти ввів неправильний user id.",
