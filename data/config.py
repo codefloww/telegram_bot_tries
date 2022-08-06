@@ -5,9 +5,8 @@ env.read_env()
 
 BOT_TOKEN = env.str("BOT_TOKEN")
 
-HELP_TEXT = """Команди, які підтримуються ботом
+HELP_TEXT = """Commands, supported in bot
 
-/start - почати роботу
-/help - допомога
-/admins - панель адміністраторів
+/start - start a bot
+/help - show this text
 """

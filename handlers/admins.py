@@ -1,6 +1,7 @@
 from aiogram import dispatcher
 from aiogram.types.message import Message
 from aiogram.types.reply_keyboard import ReplyKeyboardRemove
+from aiogram.dispatcher.filters import Command
 
 from loader import dp
 from keyboards.navigation import navigation_keyboard
@@ -15,7 +16,7 @@ from utils.db import get_admins, add_admin, remove_admin
 )
 async def adding_admin_start_handler(message: Message):
     await message.answer(
-        "Пришли user id адміна наступним повідомленням.",
+        "Send a user id in next message.",
         reply_markup=ReplyKeyboardRemove()
     )
     await AddingAdmin.ENTERING_USER_ID.set()
@@ -29,12 +30,12 @@ async def adding_admin_finish_handler(message: Message):
         user_id = int(message.text)
         add_admin(user_id)
         await message.answer(
-            "Адміна успішно додано!",
+            "Admin successfully added!",
             reply_markup=navigation_keyboard
         )
     except:
         await message.answer(
-            "Ти ввів неправильний user id.",
+            "You entered wrond id.",
             reply_markup=navigation_keyboard
         )
 
@@ -47,7 +48,7 @@ async def adding_admin_finish_handler(message: Message):
 )
 async def removing_admin_start_handler(message: Message):
     await message.answer(
-        "Пришли user id адміна наступним повідомленням.",
+        "Send a user id in next message.",
         reply_markup=ReplyKeyboardRemove()
     )
     await RemovingAdmin.ENTERING_USER_ID.set()
@@ -61,12 +62,12 @@ async def removing_admin_finish_handler(message: Message):
         user_id = int(message.text)
         remove_admin(user_id)
         await message.answer(
-            "Адміна успішно видалено!",
+            "Admin successfully deleted!",
             reply_markup=navigation_keyboard
         )
     except:
         await message.answer(
-            "Ти ввів неправильний user id.",
+            "You entered the wrong user id.",
             reply_markup=navigation_keyboard
         )
 
